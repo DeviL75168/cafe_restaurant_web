@@ -1,0 +1,21 @@
+{
+  "name": "Sapkota De Cafe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "clock"
+  ],
+  "author": "Developer DL",
+  "license": "ISC",
+  "description": "Website inspired by islington",
+  "devDependencies": {
+    "electron": "^33.2.0"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0"
+  }
+}

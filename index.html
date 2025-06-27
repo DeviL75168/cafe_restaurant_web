@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="DL">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Sapkota De Cafe | Bakery & Restaurant</title>
+</head>
+<style>
+    /* Cart Item Styles */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cart-item-image img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cart-item-name {
+    font-weight: bold;
+}
+
+.cart-item-price {
+    color: #666;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-quantity {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn-quantity:hover {
+    background: #f0f0f0;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #ff4d4d;
+}
+
+.cart-item-remove:hover {
+    color: #ff1a1a;
+}
+</style>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <!-- <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3m-18 0h3a2 2 0 0 1 2 2v3"></path>
+                    </svg> -->
+                    <button class="hamburger" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    Sapkota De <span>Cafe</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <div class="nav-buttons">
+                    <button class="theme-toggle btn-icon btn-ghost" aria-label="Toggle theme">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                    <button class="cart-button btn-icon btn-ghost" aria-label="Shopping cart">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </button>
+               
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-subtitle">Artisan Bakery & Restaurant</p>
+                    <h1>Experience <span class="text-gradient">Culinary</span> Excellence</h1>
+                    <p class="hero-description">
+                        Indulge in a unique dining experience where traditional baking meets modern cuisine. Our artisanal breads and pastries are baked fresh daily in our wood-fired ovens.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#menu" class="btn btn-primary">View Our Menu</a>
+                        <a href="#contact" class="btn btn-outline">Make a Reservation</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <div class="scroll-icon"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="about-background"></div>
+            <div class="container">
+                <div class="section-title-container">
+                    <h2 class="section-title">Our Story</h2>
+                    <p class="section-subtitle">Discover the passion and tradition behind our culinary creations</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>From Sapkota De Cafe</h3>
+                        <p>
+                            Founded in 2022, Sapkota De Cafe began as a small bakery with a single wood-fired oven. Our founder, Chef Umesh Sapkota, had a vision to create artisanal breads using traditional methods passed down through generations of ancestors.
+                        </p>
+                        <p>
+                            Today, we've grown into a full-service restaurant and bakery, but our commitment to quality and tradition remains unchanged. We use only organic, locally-sourced ingredients and bake everything fresh daily in our signature wood-fired ovens.
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">7</div>
+                                <div class="stat-label">Years of Excellence</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Award-Winning Dishes</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">30+</div>
+                                <div class="stat-label">Team Members</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">5000+</div>
+                                <div class="stat-label">Happy Customers</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=600&q=80" alt="Our Chef preparing artisanal bread">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="menu section">
+            <div class="container">
+                <div class="section-title-container">
+                    <h2 class="section-title">Our Menu</h2>
+                    <p class="section-subtitle">Explore our selection of freshly baked goods and delicious meals</p>
+                </div>
+
+                <div class="menu-tabs">
+                    <button class="tab-btn active" data-tab="breakfast">Breakfast</button>
+                    <button class="tab-btn" data-tab="lunch">Lunch</button>
+                    <button class="tab-btn" data-tab="dinner">Dinner</button>
+                    <button class="tab-btn" data-tab="bakery">Bakery</button>
+                </div>
+
+                <div class="menu-container">
+                    <!-- Breakfast Menu -->
+                    <div class="menu-content active" id="breakfast">
+                        <div class="menu-grid">
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Avocado Toast" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Avocado Toast <span class="card-price">$12</span>
+                                    </div>
+                                    <p class="card-description">Sourdough bread, fresh avocado, poached eggs, and microgreens.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-popular">Popular</span>
+                                            <span class="card-badge badge-vegan">Vegetarian</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Breakfast Bowl" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Breakfast Bowl <span class="card-price">$14</span>
+                                    </div>
+                                    <p class="card-description">Quinoa, kale, sweet potato, avocado, and a poached egg.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-vegan">Vegetarian</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="French Toast" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        French Toast <span class="card-price">$11</span>
+                                    </div>
+                                    <p class="card-description">Brioche bread, fresh berries, maple syrup, and whipped mascarpone.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-new">New</span>
+                                            <span class="card-badge badge-vegan">Vegetarian</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Eggs Benedict" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Eggs Benedict <span class="card-price">$15</span>
+                                    </div>
+                                    <p class="card-description">English muffin, poached eggs, Canadian bacon, and hollandaise sauce.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-popular">Popular</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lunch Menu -->
+                    <div class="menu-content" id="lunch">
+                        <div class="menu-grid">
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Grilled Chicken Salad" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Grilled Chicken Salad <span class="card-price">$16</span>
+                                    </div>
+                                    <p class="card-description">Mixed greens, grilled chicken, cherry tomatoes, and balsamic vinaigrette.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-popular">Popular</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Beef Burger" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Beef Burger <span class="card-price">$18</span>
+                                    </div>
+                                    <p class="card-description">Grass-fed beef, cheddar cheese, lettuce, tomato, and house sauce.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-new">New</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Vegetarian Wrap" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Vegetarian Wrap <span class="card-price">$14</span>
+                                    </div>
+                                    <p class="card-description">Whole wheat wrap, hummus, roasted vegetables, and feta cheese.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-vegan">Vegetarian</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Seafood Pasta" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Seafood Pasta <span class="card-price">$22</span>
+                                    </div>
+                                    <p class="card-description">Linguine pasta, shrimp, clams, mussels, and a white wine sauce.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-popular">Popular</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dinner Menu -->
+                    <div class="menu-content" id="dinner">
+                        <div class="menu-grid">
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Steak Frites" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Steak Frites <span class="card-price">$28</span>
+                                    </div>
+                                    <p class="card-description">Grilled ribeye steak, served with crispy fries and béarnaise sauce.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-popular">Popular</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Salmon Teriyaki" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Salmon Teriyaki <span class="card-price">$24</span>
+                                    </div>
+                                    <p class="card-description">Grilled salmon glazed with teriyaki sauce, served with steamed rice and vegetables.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-new">New</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Vegetable Curry" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Vegetable Curry <span class="card-price">$18</span>
+                                    </div>
+                                    <p class="card-description">A mix of seasonal vegetables in a rich coconut curry sauce, served with jasmine rice.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-vegan">Vegetarian</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://www.seriouseats.com/thmb/7krlJdfnpXB53aqHg-vBSHjiDPc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/perfectly-grilled-lamb-rib-or-loin-chops-recipe-hero-03-262fe2defc7c491688cb2d363dad3446.JPG" alt="Lamb Chops" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Lamb Chops <span class="card-price">$32</span>
+                                    </div>
+                                    <p class="card-description">Grilled lamb chops with rosemary, served with mashed potatoes and grilled asparagus.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-popular">Popular</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bakery Menu -->
+                    <div class="menu-content" id="bakery">
+                        <div class="menu-grid">
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Croissant" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Croissant <span class="card-price">$5</span>
+                                    </div>
+                                    <p class="card-description">Freshly baked buttery croissant, perfect with coffee or tea.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-popular">Popular</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Chocolate Eclair" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Chocolate Eclair <span class="card-price">$6</span>
+                                    </div>
+                                    <p class="card-description">Cream-filled pastry topped with rich chocolate glaze.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-new">New</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Blueberry Muffin" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Blueberry Muffin <span class="card-price">$4</span>
+                                    </div>
+                                    <p class="card-description">Moist muffin packed with fresh blueberries.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-vegan">Vegetarian</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card menu-item">
+                                <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Cinnamon Roll" class="card-image">
+                                <div class="card-content">
+                                    <div class="card-title">
+                                        Cinnamon Roll <span class="card-price">$7</span>
+                                    </div>
+                                    <p class="card-description">Soft and fluffy cinnamon roll with cream cheese frosting.</p>
+                                    <div class="card-actions">
+                                        <div>
+                                            <span class="card-badge badge-popular">Popular</span>
+                                        </div>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features section section-dark">
+            <div class="container">
+                <div class="section-title-container">
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <p class="section-subtitle">What makes our dining experience special</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Artisanal Quality</h3>
+                        <p class="feature-description">
+                            All our breads and pastries are handcrafted using traditional methods and baked in our wood-fired ovens.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Locally Sourced</h3>
+                        <p class="feature-description">
+                            We partner with local farms to ensure our ingredients are fresh, sustainable, and support our community.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 8v4l3 3"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Fresh Daily</h3>
+                        <p class="feature-description">
+                            Everything is made fresh each morning, ensuring you get the best quality and taste.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery section">
+            <div class="container">
+                <div class="section-title-container">
+                    <h2 class="section-title">Gallery</h2>
+                    <p class="section-subtitle">A glimpse of our delicious offerings and cozy ambiance</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Gallery Image 1">
+                        <div class="gallery-item-overlay">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Gallery Image 2">
+                        <div class="gallery-item-overlay">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Gallery Image 3">
+                        <div class="gallery-item-overlay">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Gallery Image 4">
+                        <div class="gallery-item-overlay">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section">
+            <div class="container">
+                <div class="section-title-container">
+                    <h2 class="section-title">What Our Customers Say</h2>
+                    <p class="section-subtitle">Hear from our happy customers</p>
+                </div>
+
+                <div class="testimonial-container">
+                    <div class="testimonial-slide active">
+                        <blockquote class="testimonial-quote">
+                            "The food at Sapkota De Cafe is simply amazing! Every bite is a burst of flavor, and the ambiance is so cozy and welcoming."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=60&h=60&q=80" alt="Customer Avatar">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">John Doe</div>
+                                <div class="author-role">Food Blogger</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <blockquote class="testimonial-quote">
+                            "I love the fresh ingredients and the attention to detail in every dish. The pastries are to die for!"
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=60&h=60&q=80" alt="Customer Avatar">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Jane Smith</div>
+                                <div class="author-role">Local Foodie</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <blockquote class="testimonial-quote">
+                            "The best dining experience I've had in a long time. The staff is friendly, and the food is always fresh and delicious."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=60&h=60&q=80" alt="Customer Avatar">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Michael Johnson</div>
+                                <div class="author-role">Regular Customer</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-controls">
+                        <button class="testimonial-dot active"></button>
+                        <button class="testimonial-dot"></button>
+                        <button class="testimonial-dot"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <div class="section-title-container">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="section-subtitle">We'd love to hear from you</p>
+                </div>
+
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3 class="contact-title">Get in Touch</h3>
+                        <ul class="contact-list">
+                            <li class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Address</h4>
+                                    <p>123 Main Street, City, Country</p>
+                                </div>
+                            </li>
+
+                            <li class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Phone</h4>
+                                    <p>+977 1234567890</p>
+                                </div>
+                            </li>
+
+                            <li class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <p>info@sapkotadecafe.com</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" class="form-control" placeholder="Your Phone Number" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <div class="map-container">
+            <div class="map-placeholder">
+                <p>Map Placeholder</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">
+                        Sapkota De <span>Cafe</span>
+                    </a>
+                    <p class="footer-description">
+                        A place where tradition meets innovation. Join us for a culinary journey like no other.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p>Subscribe to our newsletter to get the latest updates and offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your Email" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 Sapkota De Cafe. All rights reserved.</p>
+                <p>Designed with <span style="color: var(--danger);">❤</span> by DL</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Your Cart</h3>
+            <button class="cart-close">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-amount">$0.00</span>
+            </div>
+            <div class="cart-buttons">
+                <button class="btn btn-outline">View Cart</button>
+                <button class="btn btn-primary">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+
+    <script>
+
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const navLinksList = document.querySelectorAll('.nav-links li a'); // Select all navigation links
+
+// Toggle menu on hamburger click
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close menu when a navigation link is clicked
+navLinksList.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active'); // Remove active class from hamburger
+        navLinks.classList.remove('active'); // Remove active class from nav-links
+    });
+});
+       const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+
+        const modes = ['light-mode', 'dark-mode', 'black-mode','custom-mode'];
+        let currentModeIndex = 0;
+
+        function loadThemeFromLocalStorage() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                currentModeIndex = modes.indexOf(savedTheme);
+            } else {
+                body.classList.add(modes[3]);
+            }
+        }
+
+        function saveThemeToLocalStorage() {
+            localStorage.setItem('theme', modes[currentModeIndex]);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.remove(modes[currentModeIndex]);
+
+            currentModeIndex = (currentModeIndex + 1) % modes.length;
+
+            body.classList.add(modes[currentModeIndex]);
+
+            saveThemeToLocalStorage();
+        });
+
+        loadThemeFromLocalStorage();
+
+// Tab Buttons
+const tabButtons = document.querySelectorAll('.tab-btn');
+const menuContents = document.querySelectorAll('.menu-content');
+
+// Load selected tab from localStorage
+function loadSelectedTabFromLocalStorage() {
+    const savedTab = localStorage.getItem('selectedTab');
+    if (savedTab) {
+        const tabButton = document.querySelector(`.tab-btn[data-tab="${savedTab}"]`);
+        if (tabButton) {
+            tabButton.click();
+        }
+    }
+}
+
+tabButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons and content
+        tabButtons.forEach((btn) => btn.classList.remove('active'));
+        menuContents.forEach((content) => content.classList.remove('active'));
+
+        // Add active class to the clicked button
+        button.classList.add('active');
+
+        const targetTab = button.getAttribute('data-tab');
+        const targetContent = document.getElementById(targetTab);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
+
+        // Save selected tab
+        localStorage.setItem('selectedTab', targetTab);
+    });
+});
+
+// Set initial tab
+loadSelectedTabFromLocalStorage();
+
+// Cart Functionality
+const cartButton = document.querySelector('.cart-button');
+const cartSidebar = document.querySelector('.cart-sidebar');
+const cartClose = document.querySelector('.cart-close');
+const overlay = document.querySelector('.overlay');
+const addToCartButtons = document.querySelectorAll('.menu-item .btn-primary');
+const cartCount = document.querySelector('.cart-count');
+const cartItemsContainer = document.querySelector('.cart-items');
+const cartTotalAmount = document.querySelector('.cart-total-amount');
+
+let cart = [];
+let total = 0;
+
+// Save cart to localStorage
+function saveCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cartTotal', total.toString());
+}
+
+// Load cart from localStorage
+function loadCartFromLocalStorage() {
+    const savedCart = localStorage.getItem('cart');
+    const savedTotal = localStorage.getItem('cartTotal');
+
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        total = parseFloat(savedTotal);
+        updateCartItems();
+        cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
+}
+
+// Update cart items in the sidebar
+function updateCartItems() {
+    cartItemsContainer.innerHTML = '';
+    cart.forEach((item, index) => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+            <div class="cart-item-image">
+                <img src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="cart-item-details">
+                <span class="cart-item-name">${item.name}</span>
+                <span class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+                <div class="cart-item-quantity">
+                    <button class="btn-quantity" data-index="${index}" data-action="decrease">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="btn-quantity" data-index="${index}" data-action="increase">+</button>
+                </div>
+            </div>
+            <button class="cart-item-remove" data-index="${index}">&times;</button>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+    });
+
+    // Update total amount
+    cartTotalAmount.textContent = `$${total.toFixed(2)}`;
+}
+
+// Add to Cart
+addToCartButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const menuItem = button.closest('.menu-item');
+        const itemName = menuItem.querySelector('.card-title').textContent.trim();
+        const itemPrice = parseFloat(menuItem.querySelector('.card-price').textContent.replace('$', ''));
+        const itemImage = menuItem.querySelector('.card-image').src;
+
+        const existingItem = cart.find((item) => item.name === itemName);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name: itemName, price: itemPrice, image: itemImage, quantity: 1 });
+        }
+
+        total += itemPrice;
+        cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        updateCartItems();
+        saveCartToLocalStorage();
+    });
+});
+
+// Remove Item
+cartItemsContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('cart-item-remove')) {
+        const index = e.target.getAttribute('data-index');
+        const removedItem = cart[index];
+        total -= removedItem.price * removedItem.quantity;
+        cart.splice(index, 1);
+        updateCartItems();
+        cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        saveCartToLocalStorage();
+    }
+});
+
+// Increase/Decrease Quantity
+cartItemsContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn-quantity')) {
+        const index = e.target.getAttribute('data-index');
+        const action = e.target.getAttribute('data-action');
+        const item = cart[index];
+
+        if (action === 'increase') {
+            item.quantity += 1;
+            total += item.price;
+        } else if (action === 'decrease' && item.quantity > 1) {
+            item.quantity -= 1;
+            total -= item.price;
+        }
+
+        updateCartItems();
+        cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        saveCartToLocalStorage();
+    }
+});
+
+// Load cart on page load
+loadCartFromLocalStorage();
+
+// Cart Sidebar Toggle
+cartButton.addEventListener('click', () => {
+    cartSidebar.classList.add('active');
+    overlay.classList.add('active');
+});
+
+cartClose.addEventListener('click', () => {
+    cartSidebar.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
+overlay.addEventListener('click', () => {
+    cartSidebar.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
+// Testimonial Slider
+const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+const testimonialDots = document.querySelectorAll('.testimonial-dot');
+let currentSlide = 0;
+
+function showSlide(index) {
+    testimonialSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+    testimonialDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+testimonialDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+    });
+});
+
+// Auto-advance testimonials
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % testimonialSlides.length;
+    showSlide(currentSlide);
+}, 5000);
+    </script>
+</body>
+</html>
